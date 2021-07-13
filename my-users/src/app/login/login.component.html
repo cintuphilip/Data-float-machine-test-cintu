@@ -1,0 +1,32 @@
+<div class="row container">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card-group">
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="onClickSubmit(loginForm)">
+                    <h1>LOGIN</h1>
+                    <div class="input-group mb-3">
+                        <input type="text" id="username" tabindex="1" class="form-control"
+                            formControlName="username" placeholder="Username" required>
+                        <div *ngIf="formSubmitted && loginForm.controls['username'].errors" class="invalid-feedback">
+                            <div *ngIf="loginForm.controls['username'].errors.required">username is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-4">
+                        <input type="password" id="password" tabindex="2" class="form-control"
+                            formControlName="password" placeholder="Password" required/>
+                        <div *ngIf="formSubmitted && loginForm.controls['password'].errors" class="invalid-feedback">
+                            <div *ngIf="loginForm.controls['password'].errors.required">Password is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
