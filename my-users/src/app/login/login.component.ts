@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private router: Router) { 
     if(localStorage.getItem("isUserLogged") == 'yes'){
-      this.router.navigate(['/home']);
+      // this.router.navigate(['/home']);
     }
   }
 
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     else {
       if(loginForm.value.username == 'DataFloatUsername' && loginForm.value.password == 'DataFloatPassword'){
         localStorage.setItem("isUserLogged",'yes');
-        this.router.navigate(['/home']);
+        // this.router.navigate(['/home']);
       }
     }
   }

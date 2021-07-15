@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service';
+import { userDetails } from './userDetails';
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,23 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  public nameList;
-  public selectedPageSize = 3;
-  public pageSizeArray;
+  public nameList: any = [];
+  public selectedPageSize = "";
+  public pageSizeArray: any = [];
   public nameFilterQuery;
-  public userDetails;
+  public userDetail: userDetails;
 
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
+    this.userDetail = {
+      gender: 1,
+      Name: {title:"", first:"", last: "" },
+      email: "",
+      userName: "",   
+      dob: "",
+      phone: "" 
+    };
     this.getAllNamesList();
     this.getPageSizeArray();
   }
@@ -49,7 +58,8 @@ export class HomeComponent implements OnInit {
   }
   
   addNewUser() {
-    this.nameList.push(this.userDetails);
+    this.nameList.push(this.userDetail);
+    this.hideAddUserModal();
   }
 
 }
